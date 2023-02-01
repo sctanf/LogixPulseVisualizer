@@ -55,7 +55,7 @@ namespace LogixPulseVisualizer
             {
                 Slot target2 = __instance.OwnerNode.ActiveVisual;
                 ImpulseSourceProxy impulseSourceProxy = ((target2 != null) ? target2.GetComponentInChildren<ImpulseSourceProxy>((ImpulseSourceProxy e) => e.ImpulseSource.Target == __instance, false, false) : null);
-                if (impulseSourceProxy != null)
+                if (impulseSourceProxy != null && target2.ReferenceID.User == target2.LocalUser.AllocationID)
                 {
                     Slot slot = impulseSourceProxy.Slot[0];
                     ConnectionWire obj2 = ((slot != null) ? slot.GetComponent<ConnectionWire>(null, false) : null);
